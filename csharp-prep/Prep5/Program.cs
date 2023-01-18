@@ -30,9 +30,9 @@ class Program
         int num = int.Parse(Console.ReadLine());
         return num;
     } 
-    static int squareNum(int number)
+    static int squareNum(int num)
     {
-        int square = number * number;
+        int square = num*num;
         return square;
     }
     static void DisplayResult(string name, int square)
