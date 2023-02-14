@@ -1,28 +1,22 @@
-class scripture
-{
-        private List<Verse> _verses = new List<Verse>();
+using System;
 
-    public Scripture(List<string> verses)
-    {
-        foreach (string verseStr in verses)
+public class Scriptures
+{
+    private string _quote;
+
+    public string SetScripture()
+        
         {
-            Verse _verses = new Verse(verseStr);
+        Random randomGenerator = new Random();
+        string[] Scriptures = {"Proverb 3:5-6: Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.", "John 10:30: I and my father are one","John 11:35: and Jesus wept", "1Nephi 2:15 : and my father dwelt in a tent"};
+        int index = randomGenerator.Next(Scriptures.Length);
+        _quote = (Scriptures[index]);
+        return _quote;
+        
+        }
+        public string GetScripture()
+        {
+
+            return  _quote;
         }
     }
-    public bool HideWords(int count)
-    {
-        return true;
-    }
-    public bool IsAllHiddeN()
-    {
-        /skdjskdjskj/
-        return true;
-    }
-    public void Display()
-    {
-        foreach (Verse v in _verses)
-        {
-            v.Display();
-        }
-    }
-}

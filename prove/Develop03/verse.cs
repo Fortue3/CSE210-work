@@ -1,20 +1,36 @@
-class verse
+using System;
+
+public class Memorize
 {
-    private List<Word> _words = new List<Word>();
-    public Verse(String Verse)
+    private string Scripture;
+    ReplaceWord _do = new ReplaceWord();
+    
+    public void SetWord(string word)
     {
-        char[] delimiterChars = {' ', ',', '.', ':', '\t'};
-        string[] words = Verse.Split(delimiterChars);
-        foreach (string wordStr in words)
-        {
-            Word word = new Word(wordStr);
+            Scripture = word;
+             
         }
-    }
-    public void Display()
+
+    public void GetWord()
+
     {
-        foreach (Word w in _words)
+
+
+        if (Scripture=="John 10:30: I and my father are one")
         {
-            w.Display();
-        }
-    }
+            _do.Quote1(Scripture);
+        }
+        
+        else if (Scripture == "1Nephi 2:15 : and my father dwelt in a tent")
+        {
+            _do.Quote2(Scripture);
+        }
+
+        else if(Scripture =="John 11:35: and Jesus wept" )
+        {
+            _do.Quote3(Scripture);
+        }
+      
+    }
 }
+

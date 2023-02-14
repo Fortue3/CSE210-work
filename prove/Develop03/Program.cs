@@ -4,20 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
-        using System;
+        //
+        Scriptures my_scriptures = new Scriptures();
+        Memorize my_memory = new Memorize();
 
 
-        Random randomGenerator = new Random();
-        int number = randomGenerator.Next(1,101);
+        Console.WriteLine(my_scriptures.SetScripture());
+        string answer = my_scriptures.GetScripture();
 
-        List<string> verses = new List<string>
-        {
-            "verse",
-            "verse",
-            "verse"
-        };
-    }
-}
+        Console.WriteLine("Press Enter to continue or write quit to exit!");
+        
+            my_memory.SetWord(answer);
+            my_memory.GetWord();
+
+
     }
 }
