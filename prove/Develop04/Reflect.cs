@@ -17,7 +17,7 @@ public class Reflect : Activity
         Console.WriteLine("");
         Console.WriteLine("Consider this:");
         Console.WriteLine("");
-        Console.WriteLine("Think of a time you had a challenge");
+        Console.WriteLine("Think of a time you had a challenge and how you managed it");
         Console.WriteLine("");
         Console.WriteLine("When you have thought of something press enter for contiuation.");
         
