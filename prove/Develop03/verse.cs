@@ -1,36 +1,61 @@
-using System;
-
-public class Memorize
+class Verse
 {
-    private string Scripture;
-    ReplaceWord _do = new ReplaceWord();
-    
-    public void SetWord(string word)
+    private List<Word> _words = new List<Word>();
+    public Verse(String Verse)
     {
-            Scripture = word;
-             
+        char[] delimiterChars = {' ', ',', '.', ':', '\t'};
+        string[] words = Verse.Split(delimiterChars);
+        foreach (string wordStr in words)
+        {
+            Word word = new Word(wordStr);
+            _words.Add(word);
         }
+    }
 
-    public void GetWord()
-
+    public int hideWords(int numWordsToHide)
     {
-
-
-        if (Scripture=="John 10:30: I and my father are one")
+        int numWordsHidden = 0;
+        while (IsAllHidden() == false)
         {
-            _do.Quote1(Scripture);
+            List <Word> notHidden = new List<Word>();
+            Random rand = new Random();
+            foreach (Word w in _words)
+            {
+                if (!w.isWordHidden())
+                {
+                    notHidden.Add(w);
+                }
+            }
+            for (int i = 0; i < numWordsToHide; i++)
+            {
+                int hide = rand.Next(0,notHidden.Count);
+                notHidden[hide].hideWord();
+                notHidden.RemoveAt(hide);
+                numWordsToHide--;
+                numWordsHidden++;
+            }
         }
-        
-        else if (Scripture == "1Nephi 2:15 : and my father dwelt in a tent")
-        {
-            _do.Quote2(Scripture);
-        }
+        return numWordsHidden;
+    }
 
-        else if(Scripture =="John 11:35: and Jesus wept" )
+    public bool IsAllHidden()
+    {
+        bool check = false;
+        foreach(Word w in _words)
         {
-            _do.Quote3(Scripture);
+            check = w.isWordHidden();
+            if (check == false)
+            {
+                return check;
+            }
         }
-      
+        return true;
+    }
+    public void Display()
+    {
+        foreach (Word w in _words)
+        {
+            w.Display();
+        }
     }
 }
-

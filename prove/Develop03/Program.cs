@@ -4,19 +4,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        //
-        Scriptures my_scriptures = new Scriptures();
-        Memorize my_memory = new Memorize();
-
-
-        Console.WriteLine(my_scriptures.SetScripture());
-        string answer = my_scriptures.GetScripture();
-
-        Console.WriteLine("Press Enter to continue or write quit to exit!");
+        Random rand = new Random();
+        List<string> reference = new List<string>
+        {
+            "Trust in the Lord with all thine heart; and lean not unto thine own understanding.", "In all thy ways acknowledge him, and he shall direct thy paths."
+        };
         
-            my_memory.SetWord(answer);
-            my_memory.GetWord();
-
-
+        Scripture scrip = new Scripture(reference);
+        scrip.Display();        
+        while (scrip.IsAllHidden() == false)
+        {
+            Console.ReadLine();
+            Console.Clear();
+            scrip.HideWords(rand.Next(0,5));
+            scrip.Display();
+        }
     }
 }
