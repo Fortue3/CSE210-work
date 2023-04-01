@@ -34,7 +34,7 @@ class Event {
     }
 
     public string GetStandardDetails() {
-        return $"Title: {title}\nDescription: {description}\nDate: {date.ToString("D")}\nTime: {time.ToString("h\\:mm tt")}\nAddress: {address.GetAddress()}";
+        return $"Title: {title}\nDescription: {description}\nDate: {date.ToString("D")}\nTime: {time.ToString()}\nAddress: {address.GetAddress()}";
     }
 
     public virtual string GetFullDetails() {
@@ -88,9 +88,9 @@ class OutdoorGathering : Event {
 }
 class Program {
     static void Main(string[] args) {
-        Address address1 = new Address("6567 Alm Street", "Mkoba ", "GW", "12345");
-        Address address2 = new Address("456 Elm St", "Ascot", "GW", "67890");
-        Address address3 = new Address("789 Maple St", "Masvingo", "MT", "54321");
+        Address address1 = new Address("123 Main St", "Anytown", "CA", "12345");
+        Address address2 = new Address("456 Elm St", "Othertown", "NY", "67890");
+        Address address3 = new Address("789 Maple St", "Somewhere", "TX", "54321");
 
         Lecture lecture = new Lecture("Introduction to C#", "Learn the basics of C# programming", new DateTime(2023, 4, 1), new TimeSpan(14, 0, 0), address1, "John Smith", 50);
         Reception reception = new Reception("Networking Event", "Meet and network with other professionals", new DateTime(2023, 4, 15), new TimeSpan(18, 30, 0), address2, "rsvp@example.com");
